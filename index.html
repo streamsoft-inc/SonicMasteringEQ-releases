@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sonic Mastering EQ — Release Notes</title>
+<style>
+  :root { --bg:#ffffff; --fg:#1d1d1f; --muted:#6e6e73; --line:#e5e5ea; --accent:#b8860b; --side:#f5f5f7; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1c1c1e; --fg:#f2f2f7; --muted:#a1a1a6; --line:#3a3a3c; --accent:#daa520; --side:#2c2c2e; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.55 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif; }
+  header { padding:20px 24px; border-bottom:1px solid var(--line); }
+  header h1 { margin:0; font-size:22px; }
+  .nda { margin:6px 0 0; font-weight:600; }
+  .wrap { display:flex; }
+  nav { position:sticky; top:0; align-self:flex-start; width:220px; height:100vh; overflow:auto; background:var(--side); border-right:1px solid var(--line); padding:12px 0; }
+  nav input { margin:0 12px 10px; width:calc(100% - 24px); padding:6px 8px; border:1px solid var(--line); border-radius:6px; background:var(--bg); color:var(--fg); }
+  nav ul { list-style:none; margin:0; padding:0; }
+  nav a { display:flex; justify-content:space-between; padding:5px 16px; color:var(--fg); text-decoration:none; }
+  nav a:hover { background:var(--line); }
+  nav .d { color:var(--muted); font-size:12px; }
+  main { flex:1; min-width:0; padding:8px 32px 64px; max-width:900px; }
+  section { padding:18px 0; border-bottom:1px solid var(--line); scroll-margin-top:8px; }
+  section h2 { margin:0 0 6px; font-size:20px; }
+  .date { color:var(--muted); font-size:14px; font-weight:400; margin-left:8px; }
+  .headlines { margin:4px 0 8px; }
+  details summary { cursor:pointer; color:var(--accent); font-weight:600; }
+  details h3 { font-size:16px; margin:16px 0 4px; }
+  details h4 { font-size:15px; margin:12px 0 4px; }
+  code { font-size:13px; background:var(--side); padding:1px 4px; border-radius:4px; }
+  .tablewrap { overflow-x:auto; margin:8px 0 12px; }
+  table { border-collapse:collapse; font-size:13px; }
+  th, td { border:1px solid var(--line); padding:5px 8px; text-align:left; vertical-align:top; }
+  th { background:var(--side); }
+  a { color:var(--accent); }
+  #results { display:none; padding:14px 0 6px; border-bottom:1px solid var(--line); }
+  #results h2 { font-size:15px; margin:0 0 8px; color:var(--muted); font-weight:600; }
+  #results ol { list-style:none; margin:0; padding:0; }
+  #results li { padding:8px 10px; margin:0 0 6px; border:1px solid var(--line); border-radius:8px; cursor:pointer; }
+  #results li:hover, #results li:focus { background:var(--side); outline:none; }
+  #results .where { font-size:12px; color:var(--muted); margin-bottom:2px; }
+  #results .where b { color:var(--fg); }
+  mark { background:#ffe58a; color:#1d1d1f; padding:0 1px; border-radius:2px; }
+  .hit { animation: flash 1.6s ease-out; }
+  @keyframes flash { from { background:#ffe58a55; } to { background:transparent; } }
+  @media (max-width: 760px) {
+    .wrap { display:block; }
+    nav { position:static; width:auto; height:auto; max-height:40vh; border-right:none; border-bottom:1px solid var(--line); }
+    main { padding:8px 16px 48px; }
+  }
+</style>
+</head>
+<body>
+<header><h1>Sonic Mastering EQ — Release Notes</h1></header>
+<div class="wrap">
+<nav><input id="filter" type="search" placeholder="Search the notes" aria-label="Search the release notes"><ul id="versions">
+<li><a href="#v1-0-0"><span class="v">1.0.0</span><span class="d">2026-10-24</span></a></li>
+</ul></nav>
+<main>
+<div id="results" aria-live="polite"><h2 id="results-count"></h2><ol id="results-list"></ol></div>
+<section id="v1-0-0"><h2>1.0.0 <span class="date">2026-10-24</span></h2><ul class="headlines"><li>Initial release.</li></ul><details><summary>Full notes</summary><p>Initial release.</p><h3>What's new</h3>
+<ul><li>Six-band mastering EQ built on the Sonic Studio Mastering EQ filter engine</li><li>15 filter types per band: Parametric, Band Pass, Band Stop, Notch, Hi Shelf, Lo Shelf, Hi Pass, Lo Pass, DC Block, Emphasis, De-emphasis, De-emph/DC, RIAA and De-RIAA (or None)</li><li>Order 1–4, with passband ripple and stopband attenuation for the high-order filters; each band shows only the controls its type uses</li><li>Per-band On/Off and a global EQ ON switch</li><li>Visualizer with per-band curves, a dotted summed curve and draggable band nodes; 24 / 12 / 6 / 3 dB scale</li><li>Output gain fader (±12 dB)</li><li>Dither: Bypass, Round, Dither (TPDF) and Noise Shape, at 16, 20 or 24 bits, with silence gate and noise-shaping band</li><li>Peak and RMS meters for every channel, with held readouts, Peak Hold and Meter Release settings</li><li>A–D compare slots, saved with the session</li><li>Mono through 16 channels, including 7.1.4 and 9.1.6</li><li>AU and VST3, licensed with soundBlade 3.0 (included with soundBlade); or AU, VST3 and AAX with a Sonic Studio Mastering EQ iLok licence</li><li>macOS ARM64 + Intel universal</li><li>Installer lets you choose which formats to install (Customize); an uninstaller is included on the disk image</li></ul></details></section>
+</main>
+</div>
+<script>
+  /* SEARCH (2026-10-05): every paragraph, bullet and heading of every version's notes is a searchable block.
+     All the words typed must appear in a block; the results list each block with its version and section,
+     terms highlighted, and a click opens that version's notes at the spot. A version number alone jumps to it. */
+  const box = document.getElementById('filter');
+  const results = document.getElementById('results');
+  const count = document.getElementById('results-count');
+  const list = document.getElementById('results-list');
+
+  const blocks = [];
+  document.querySelectorAll('main section').forEach(sec => {
+    const version = sec.querySelector('h2').firstChild.textContent.trim();
+    const date = (sec.querySelector('.date') || { textContent: '' }).textContent.trim();
+    let heading = '';
+    sec.querySelectorAll('details h3, details h4, details p, details li, .headlines li').forEach(el => {
+      if (el.tagName === 'H3' || el.tagName === 'H4') { heading = el.textContent.trim(); }
+      // A bullet's own paragraphs are searched with it, not twice.
+      if (el.tagName === 'P' && el.closest('li')) return;
+      // The summary sentence is both a headline and the notes' first paragraph: list it once.
+      if (blocks.some(b => b.sec === sec && b.text.trim() === el.textContent.trim())) return;
+      blocks.push({ el, sec, version, date, heading: el.tagName.startsWith('H') ? '' : heading, text: el.textContent });
+    });
+  });
+
+  const escapeHtml = t => t.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const escapeRe = t => t.split('').map(c => '.*+?^${}()|[]/'.includes(c) || c.charCodeAt(0) === 92 ? String.fromCharCode(92) + c : c).join('');
+
+  function snippet(text, words) {
+    const lower = text.toLowerCase();
+    const at = Math.max(0, lower.indexOf(words[0]));
+    const from = Math.max(0, at - 70), to = Math.min(text.length, at + 170);
+    let s = (from > 0 ? '…' : '') + text.slice(from, to).trim() + (to < text.length ? '…' : '');
+    s = escapeHtml(s);
+    const re = new RegExp('(' + words.map(escapeRe).join('|') + ')', 'gi');
+    return s.replace(re, '<mark>$1</mark>');
+  }
+
+  function clearMarks() {
+    document.querySelectorAll('main section mark').forEach(m => m.replaceWith(document.createTextNode(m.textContent)));
+    document.querySelectorAll('main section').forEach(s => s.normalize());
+  }
+
+  function markIn(el, words) {
+    const re = new RegExp('(' + words.map(escapeRe).join('|') + ')', 'gi');
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(n => {
+      if (!re.test(n.textContent)) return;
+      re.lastIndex = 0;
+      const span = document.createElement('span');
+      span.innerHTML = escapeHtml(n.textContent).replace(re, '<mark>$1</mark>');
+      n.replaceWith(...span.childNodes);
+    });
+  }
+
+  function go(block, words) {
+    block.sec.querySelector('details').open = true;
+    clearMarks();
+    markIn(block.sec, words);
+    block.el.classList.remove('hit'); void block.el.offsetWidth; block.el.classList.add('hit');
+    block.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  function search() {
+    const q = box.value.trim().toLowerCase();
+    clearMarks();
+    document.querySelectorAll('main section, nav li').forEach(e => e.style.display = '');
+
+    if (!q) { results.style.display = 'none'; return; }
+
+    // A version number: jump straight to it.
+    const asVersion = document.getElementById('v' + q.replace(/^v/, '').replace(/\./g, '-'));
+    const words = q.split(/\s+/).filter(Boolean);
+    const hits = blocks.filter(b => { const t = b.text.toLowerCase(); return words.every(w => t.includes(w)); });
+
+    const versions = new Set(hits.map(h => h.sec.id));
+    if (asVersion) versions.add(asVersion.id);
+    document.querySelectorAll('main section').forEach(s => s.style.display = versions.has(s.id) ? '' : 'none');
+    document.querySelectorAll('nav a').forEach(a => a.parentElement.style.display = versions.has(a.getAttribute('href').slice(1)) ? '' : 'none');
+
+    count.textContent = hits.length === 0 ? (asVersion ? 'Version ' + q : 'No matches')
+                      : hits.length + (hits.length === 1 ? ' match' : ' matches') + ' in ' + versions.size + (versions.size === 1 ? ' version' : ' versions');
+    list.innerHTML = '';
+
+    hits.slice(0, 200).forEach(h => {
+      const li = document.createElement('li');
+      li.tabIndex = 0;
+      li.innerHTML = '<div class="where"><b>' + escapeHtml(h.version) + '</b>' + (h.date ? ' · ' + escapeHtml(h.date) : '')
+                   + (h.heading ? ' · ' + escapeHtml(h.heading) : '') + '</div>' + snippet(h.text, words);
+      li.addEventListener('click', () => go(h, words));
+      li.addEventListener('keydown', e => { if (e.key === 'Enter') go(h, words); });
+      list.appendChild(li);
+    });
+
+    results.style.display = 'block';   // the stylesheet hides it; '' would fall back to that
+  }
+
+  let timer = null;
+  box.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(search, 150); });
+  box.addEventListener('keydown', e => { if (e.key === 'Escape') { box.value = ''; search(); } });
+
+  // A link to a version opens its full notes.
+  function openTarget() { const s = document.getElementById(location.hash.slice(1)); if (s && s.querySelector('details')) s.querySelector('details').open = true; }
+  window.addEventListener('hashchange', openTarget); openTarget();
+</script>
+</body>
+</html>
